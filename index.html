@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MFT & MVT Memory Allocation Simulator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>MFT & MVT Memory Allocation Simulator</h1>
+    <p>Operating System Virtual Lab</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Memory Configuration</h2>
+
+        <label>Total Memory (KB)</label>
+        <input type="number" id="memorySize" placeholder="Enter Total Memory">
+
+        <label>Partition Size (Only for MFT)</label>
+        <input type="number" id="partitionSize" placeholder="Enter Partition Size">
+
+        <label>Processes (Comma Separated)</label>
+        <input type="text" id="processes" placeholder="Example: 100,200,50,300">
+
+        <label>Choose Allocation Type</label>
+
+        <select id="allocationType">
+            <option value="mft">MFT</option>
+            <option value="mvt">MVT</option>
+        </select>
+
+        <label>Choose Algorithm</label>
+
+        <select id="algorithm">
+            <option value="first">First Fit</option>
+            <option value="best">Best Fit</option>
+            <option value="worst">Worst Fit</option>
+            <option value="next">Next Fit</option>
+        </select>
+
+        <div class="buttons">
+            <button onclick="simulate()">Simulate</button>
+            <button onclick="loadSample()">Sample Data</button>
+            <button onclick="resetSimulator()">Reset</button>
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Statistics</h2>
+
+        <div class="stats">
+
+            <div class="stat-box">
+                <h3>Total Memory</h3>
+                <p id="totalMemory">0 KB</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Used Memory</h3>
+                <p id="usedMemory">0 KB</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Free Memory</h3>
+                <p id="freeMemory">0 KB</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Internal Fragmentation</h3>
+                <p id="internalFrag">0 KB</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>External Fragmentation</h3>
+                <p id="externalFrag">0 KB</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Allocation Result</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Process</th>
+                    <th>Size</th>
+                    <th>Allocated Block</th>
+                    <th>Status</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="resultTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Memory Visualization</h2>
+
+        <div id="memoryVisualization">
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>About</h2>
+
+        <p>
+            This simulator demonstrates
+            <strong>MFT (Multiprogramming with Fixed Tasks)</strong>
+            and
+            <strong>MVT (Multiprogramming with Variable Tasks)</strong>
+            memory allocation techniques used in Operating Systems.
+        </p>
+
+        <ul>
+            <li>First Fit</li>
+            <li>Best Fit</li>
+            <li>Worst Fit</li>
+            <li>Next Fit</li>
+            <li>Memory Visualization</li>
+            <li>Internal Fragmentation</li>
+            <li>External Fragmentation</li>
+        </ul>
+
+    </div>
+
+</div>
+
+<footer>
+
+    <p>
+        Operating System Virtual Lab © 2026
+    </p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
